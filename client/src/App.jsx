@@ -31,11 +31,9 @@ const App = () => {
       <div className="container">
         <Router>
           <Switch>
-            
+          <Route exact path="/" component={LoginPage} />
           <Route exact path="/register" component={RegisterForm} />
-            <Route exact path="/" component={LoginPage} />
-            
-            <Route exact path="/home" component={Home} />
+          <Route exact path="/home" component={Home} />
             
 
             {/* User Master Routes */}
@@ -46,24 +44,24 @@ const App = () => {
             <Route exact path="/userMasters/:um_seq/update"
               component={UpdateUMPage}
             />
-            <Route exact path="/userMasters/:um_seq"
-              component={UserMasterDetailPage}
-            />
+            <Route exact path="/userMasters/:um_seq">
+            <AddVolunteer/>
+            <UserMasterDetailPage/>
+            </Route>
 
             {/* Volunteer Routes */}
             <Route exact path="/volunteers" >
-                <AddVolunteer/>
                 <VolunteerList/>
             </Route>
             <Route exact path="/volunteers/:vol_id/update"
               component={UpdateVolunteer}
             />
-            <Route exact path="/volunteers/:vol_id"
-              component={VolunteerDetailPage}
-            />
+            <Route exact path="/volunteers/:vol_id">
+              <AddCustomer/>
+              <VolunteerDetailPage/>
+            </Route>
 
           <Route exact path="/customers" >
-            <AddCustomer/>
             <CustomerList/>
           </Route>
           <Route

@@ -43,19 +43,19 @@ const UMHeader = () => {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               {/* Use Link component for internal navigation */}
-              <Link
+              {/* <Link
                 to="/"
                 className="nav-link"
                 onClick={handleHomeClick}
                 style={{ cursor: "pointer" }}
               >
                 Home <span className="sr-only">(current)</span>
-              </Link>
+              </Link> */}
             </li>
             <li className="nav-item">
-              <Link to="/user" className="nav-link">
+              {/* <Link to="/user" className="nav-link">
                 User
-              </Link>
+              </Link> */}
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
