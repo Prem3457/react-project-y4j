@@ -205,6 +205,11 @@ const AddCustomer = () => {
     }
   };
 
+	const [openAccordion, setOpenAccordion] = useState(null);
+	const handleAccordionToggle = (accordionId) => {
+		setOpenAccordion((prev) => (prev === accordionId ? null : accordionId));
+	};
+
   return (
     <>
       <div className="beginning-header">
@@ -219,18 +224,22 @@ const AddCustomer = () => {
                 <h5 className="accordion-header"
                 id="personalDetailsHeading"
                 style={{ backgroundColor: "#f1f1f1", padding: "10px", borderBottom: "1px solid #ddd", cursor: "pointer" }}
-                onClick={() => document.getElementById('personalDetailsCollapse').classList.toggle('show')}>
+                onClick={() => { 
+                  document.getElementById('personalDetailsCollapse').classList.toggle('show');
+                  handleAccordionToggle("personalDetailsCollapse"); }}>
                   Personal Details
                 </h5>
                 <div
                   id="personalDetailsCollapse"
-                  className="accordion-collapse collapse"
+                  className={`accordion-collapse collapse ${
+                    openAccordion === "personalDetailsCollapse" ? "show" : ""
+                  }`}
                   aria-labelledby="personalDetailsHeading"
                   data-bs-parent="#personalDetailsAccordion"
                   style={{ backgroundColor: "#f5f5f5", padding: "15px" }}
                 >
-                  <div className="accordion-item-body">
-                    <div className="accordion-item-body-content">
+                  <div className="accordion-body">
+                    <div className="accordion-body-content">
                       {/* Fields 1 to 28 */}
                       <div className="form-row">
 
@@ -838,18 +847,22 @@ const AddCustomer = () => {
                 <h5 className="accordion-header"
                 id="residentialDetailsHeading"
                 style={{ backgroundColor: "#f1f1f1", padding: "10px", borderBottom: "1px solid #ddd", cursor: "pointer" }}
-                onClick={() => document.getElementById('residentialDetailsCollapse').classList.toggle('show')}>
+                onClick={() => { 
+                  document.getElementById('residentialDetailsCollapse').classList.toggle('show');
+                  handleAccordionToggle("residentialDetailsCollapse"); }}>
                   Residential Details
                 </h5>
                 <div
                   id="residentialDetailsCollapse"
-                  className="accordion-collapse collapse"
+                  className={`accordion-collapse collapse ${
+                    openAccordion === "residentialDetailsCollapse" ? "show" : ""
+                  }`}
                   aria-labelledby="residentialDetailsHeading"
                   data-bs-parent="#residentialDetailsAccordion"
                   style={{ backgroundColor: "#f5f5f5", padding: "15px" }}
                 >
-                  <div className="accordion-item-body">
-                    <div className="accordion-item-body-content">
+                  <div className="accordion-body">
+                    <div className="accordion-body-content">
                       {/* Fields 29 to 34 */}
                       <div className="form-row">
 
@@ -969,18 +982,22 @@ const AddCustomer = () => {
                 <h5 className="accordion-header"
                 id="educationDetailsHeading"
                 style={{ backgroundColor: "#f1f1f1", padding: "10px", borderBottom: "1px solid #ddd", cursor: "pointer" }}
-                onClick={() => document.getElementById('educationDetailsCollapse').classList.toggle('show')}>
+                onClick={() => { 
+                  document.getElementById('educationDetailsCollapse').classList.toggle('show');
+                  handleAccordionToggle("educationDetailsCollapse"); }}>
                   Education Details
                 </h5>
                 <div
                   id="educationDetailsCollapse"
-                  className="accordion-collapse collapse"
+                  className={`accordion-collapse collapse ${
+                    openAccordion === "educationDetailsCollapse" ? "show" : ""
+                  }`}
                   aria-labelledby="educationDetailsHeading"
                   data-bs-parent="#educationDetailsAccordion"
                   style={{ backgroundColor: "#f5f5f5", padding: "15px" }}
                 >
-                  <div className="accordion-item-body">
-                    <div className="accordion-item-body-content">
+                  <div className="accordion-body">
+                    <div className="accordion-body-content">
                       {/* Fields 35 to 49 */}
                       <div className="form-row">
 
